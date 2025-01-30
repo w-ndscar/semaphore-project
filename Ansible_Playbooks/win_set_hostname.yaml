@@ -1,0 +1,13 @@
+---
+- name: win_set_hostname
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Setting Hostname
+      ansible.windows.win_hostname:
+        name: {{ inventory_hostname }}
+      register: yes
+    
+    - name: Reboot
+      ansible.windows.win_reboot:
+        when: res.reboot_required

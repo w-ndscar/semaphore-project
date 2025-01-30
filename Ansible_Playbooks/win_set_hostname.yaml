@@ -5,7 +5,7 @@
   tasks:
     - name: Setting Hostname
       ansible.windows.win_hostname:
-        name: {{ inventory_hostname }}
+        name: "{{ inventory_hostname }}"
       register: yes
     
     - name: Reboot
